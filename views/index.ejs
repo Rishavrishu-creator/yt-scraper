@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/style.css">
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="start">
+        Youtube - Scraper
+    </h1>
+
+    <form action="/index" method="POST">
+          
+          <label for="pwd">Youtube url:</label>
+          <input type="text" class="form-control" name="url" id="pwd" autocomplete="off" placeholder="Enter your youtube url" required>
+        </div>
+      
+        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-danger" id="reset">Reset</button>
+      </form>
+      
+      <div class="mid">
+          <h1 class="start1">
+              Result:
+          </h1>
+          <% if(typeof(details)!='undefined')
+          {
+
+              %>
+              <div class="info" id="info">
+
+             
+              <img src="<%= details.thumbnails[0].url %>" width="300px" height="300px">
+              <h3>Title:</h3><span>
+                  <%= details.title %>
+              </span>
+              <h3>URL: </h3><span>
+               <a href="<%= details.url %>" target="_blank">
+                   Open the video
+               </a>
+            </span>
+              <h3>Description: </h3><span>
+                <%= details.description %>
+            </span>
+            <h3>Total Views: </h3><span>
+                <%= details.views %>
+            </span>
+            <h3>Category: </h3><span>
+                <%= details.category %>
+            </span>
+            <h3>Likes: </h3><span>
+                <%= details.rating.approx.likes %>
+            </span>
+            <h3>Dislikes: </h3><span>
+                <%= details.rating.approx.dislikes %>
+            </span>
+            <h3>Uploaded on: </h3><span>
+                <%= details.dates.published %>
+            </span>
+
+        </div>
+              <% } %>
+      </div>
+      <div class="footer">
+        <h5>
+            &copy; 2020 Designed by RISHAV AGARWAL(A passionate developer)
+            <br>
+            
+        </h5>
+        <h5 class="call">
+        Call me At: 6289712990 for any queries</h5>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </div>
+          <script lang="javascript">
+              document.getElementById("reset").onclick=function()
+              {
+                    document.getElementById("info").innerHTML="" 
+              }
+          </script>
+
+</body>
+
+</html>
